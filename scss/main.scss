@@ -46,6 +46,10 @@ body {
 
       .cities {
 
+        &:focus {
+          background: #bdbdbd;
+          outline: none;
+        }
       }
     }
   }

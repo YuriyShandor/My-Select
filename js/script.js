@@ -18,12 +18,19 @@ function change() {
 plashka.onclick = change;
 
 for (var i = 0; i < cities.length; i++) {
-  // if(cities[i].getAttribute('value') < 1000000) {
-  //   this.hidden = true;
-  // };
+
+  cities[i].setAttribute("tabindex", "1");
 
   var population = (cities[i].getAttribute('value') / 1000000).toFixed(1);
   cities[i].innerHTML = cities[i].textContent + ", населення " + population + " млн";
+
+  if(population < 1) {
+    cities[i].style.display = 'none';
+  };
+
+  cities[i].onclick = function() {
+    plashka.innerHTML = this.textContent;
+  }
 
   console.log(cities[i]);
 };
