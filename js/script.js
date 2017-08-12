@@ -17,6 +17,11 @@ function change() {
 
 plashka.onclick = change;
 
+var searchText = document.getElementById('search__input');
+
+console.log(typeof searchText.value);
+
+
 for (var i = 0; i < cities.length; i++) {
 
   cities[i].setAttribute("tabindex", "1");
@@ -32,5 +37,21 @@ for (var i = 0; i < cities.length; i++) {
     plashka.innerHTML = this.textContent;
   }
 
-  console.log(cities[i]);
+  var titleOfCity = cities[i].textContent;
+
+  var oneCity = cities[i];
+
+  console.log(typeof titleOfCity);
+
+  searchText.oninput = function() {
+    if(!titleOfCity.includes(searchText.value)) {
+      oneCity.style.display = 'none';
+    };
+
+    //document.getElementById('result').innerHTML = searchText.value;
+  };
+
+ console.log("Текст: " + titleOfCity);
+
+ console.log(oneCity);
 };

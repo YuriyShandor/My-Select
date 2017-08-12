@@ -39,6 +39,12 @@ body {
   }
 
   .search-items {
+    .select-search {
+      width: 400px;
+      height: 30px;
+      border: 0.5px solid #757575;
+      margin-bottom: 3px;
+    }
 
     .select-items {
       display: flex;
