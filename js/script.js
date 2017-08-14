@@ -19,7 +19,20 @@ plashka.onclick = change;
 
 var searchText = document.getElementById('search__input');
 
-console.log(typeof searchText.value);
+
+searchText.oninput = function() {
+  for (var i = 0; i < cities.length; i++) {
+    if (!cities[i].textContent.toLowerCase().includes(searchText.value.toLowerCase())) {
+      cities[i].style.display = 'none';
+    } else {
+      cities[i].style.display = '';
+
+      if (cities[i].getAttribute('value') < 1000000) {
+        cities[i].style.display = 'none';
+      };
+    };
+  };
+}
 
 
 for (var i = 0; i < cities.length; i++) {
@@ -36,22 +49,4 @@ for (var i = 0; i < cities.length; i++) {
   cities[i].onclick = function() {
     plashka.innerHTML = this.textContent;
   }
-
-  var titleOfCity = cities[i].textContent;
-
-  var oneCity = cities[i];
-
-  console.log(typeof titleOfCity);
-
-  searchText.oninput = function() {
-    if(!titleOfCity.includes(searchText.value)) {
-      oneCity.style.display = 'none';
-    };
-
-    //document.getElementById('result').innerHTML = searchText.value;
-  };
-
- console.log("Текст: " + titleOfCity);
-
- console.log(oneCity);
 };
